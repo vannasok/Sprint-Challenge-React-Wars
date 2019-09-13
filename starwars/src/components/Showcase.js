@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Card from './Card';
+import BG from '../sw-bg.jpg';
 
 const Container = styled.div`
-background-image: url('../../src/sw-bg.jpg');
-background:  #FF7F50;
+background-image: url(${BG});
+// background:  #FF7F50;
 margin: 2%;
 display: flex;
 flex-direction: column;
@@ -16,15 +17,15 @@ text-aligh: center;
 export default function Showcase(){
     const [people, setpeople] = useState([]);
 
-    const [name, setname] = useState('');
-    const [birth_year, setbirthYear] = useState('');
-    const [gender, setgender] = useState('');
-    const [height, setheight] = useState('');
-    const [mass, setmass] = useState('');
-    const [hair_color, sethairColor] = useState('');
-    const [skin_color, setskinColor] = useState('');
-    const [eye_color, seteyeColor] = useState('');
-    const [films, setfilms] = useState('0');
+    // const [name, setname] = useState('');
+    // const [birth_year, setbirthYear] = useState('');
+    // const [gender, setgender] = useState('');
+    // const [height, setheight] = useState('');
+    // const [mass, setmass] = useState('');
+    // const [hair_color, sethairColor] = useState('');
+    // const [skin_color, setskinColor] = useState('');
+    // const [eye_color, seteyeColor] = useState('');
+    // const [films, setfilms] = useState('0');
     
 
     useEffect(() => {
@@ -35,15 +36,15 @@ export default function Showcase(){
             console.log(char);
             setpeople(char);
 
-            setname(char.name);
-            setbirthYear(char.birth_year);
-            setgender(char.gender);
-            setheight(char.height);
-            setmass(char.mass);
-            sethairColor(char.hair_color);
-            setskinColor(char.skin_color);
-            seteyeColor(char.eye_color);
-            setfilms(char.films);
+            // setname(char.name);
+            // setbirthYear(char.birth_year);
+            // setgender(char.gender);
+            // setheight(char.height);
+            // setmass(char.mass);
+            // sethairColor(char.hair_color);
+            // setskinColor(char.skin_color);
+            // seteyeColor(char.eye_color);
+            // setfilms(char.films);
         })
         .catch(error =>{
             console.log('Error Found.', error);
@@ -54,7 +55,6 @@ export default function Showcase(){
 return (
     <Container>
         <h3>Lists Of People</h3>
-        <div>
         {people.map( (person, index) =>{
             return <Card 
                 key={index}
@@ -69,7 +69,7 @@ return (
                 films={person.films.length}
             />;
         })} 
-        </div>
+        
     </Container>
 
 )//return function
